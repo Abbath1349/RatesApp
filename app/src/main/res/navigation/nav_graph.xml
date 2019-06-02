@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph" app:startDestination="@id/startFragment">
+
+    <fragment android:id="@+id/startFragment"
+              android:name="com.dmitry_kuzmin.ratesapp.menu.presentation.ui.fragment.StartFragment"
+              android:label="StartFragment">
+        <action android:id="@+id/action_startFragment_to_rateListFragment2" app:destination="@id/rateListFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/rateListFragment"
+              android:name="com.dmitry_kuzmin.ratesapp.rates.presentation.ui.fragment.RateListFragment"
+              android:label="RateListFragment"/>
+</navigation>
