@@ -1,10 +1,12 @@
 package com.dmitry_kuzmin.ratesapp.rates.data.api
 
 import com.dmitry_kuzmin.ratesapp.rates.data.IEXStockModel
-import io.reactivex.Single
-
+import io.reactivex.Observable
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface IEXCloudApi {
 
-    fun loadStocks(type: String): Single<List<IEXStockModel>>
+    @GET("stock/market/list/{type}")
+    fun loadStocks(@Path("type") type: String): Observable<List<IEXStockModel>>
 }

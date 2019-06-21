@@ -4,9 +4,10 @@ import com.dmitry_kuzmin.ratesapp.menu.domain.model.Stock
 import com.dmitry_kuzmin.ratesapp.rates.data.api.IEXCloudApi
 import com.dmitry_kuzmin.ratesapp.rates.domain.repo.StockListTypes
 import com.dmitry_kuzmin.ratesapp.settings.data.prefs.IEXTokenProvider
-import io.reactivex.Single
+import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val ROOT_URL = "https://cloud.iexapis.com/stable/"
@@ -23,6 +24,7 @@ class IEXDataSource : IStocksDataSource {
         Retrofit.Builder()
             .baseUrl(ROOT_URL)
             .client(createIntereptor())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -43,12 +45,12 @@ class IEXDataSource : IStocksDataSource {
             }.build()
     }
 
-    override fun loadStocks(types: List<StockListTypes>): Single<List<Stock>> {
+    override fun loadStocks(types: List<StockListTypes>): Observable<List<Stock>> {
         return if (types.size == 1 && types.none { it == StockListTypes.ALL }) {
             api.loadStocks(types.single().convert())
                 .map { list -> list.map { it.toStockModel() } }
         } else {
-            Single.just(listOf())
+            Observable.just(listOf())
         }
     }
 

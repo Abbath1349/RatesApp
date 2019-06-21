@@ -8,20 +8,20 @@ import java.math.BigDecimal
 data class IEXStockModel(
     val symbol: String,
     val companyName: String,
-    val latestPrice: BigDecimal,
+    val latestPrice: String,
     @SerializedName("high")
-    val highPrie: BigDecimal,
+    val highPrie: String,
     @SerializedName("low")
-    val lowPrice: BigDecimal
+    val lowPrice: String
 
 ) {
     fun toStockModel(): Stock {
         return Stock(
             symbol,
             companyName,
-            Money(latestPrice),
-            Money(lowPrice),
-            Money(highPrie)
+            Money(BigDecimal(latestPrice)),
+            Money(BigDecimal(lowPrice)),
+            Money(BigDecimal(highPrie))
         )
     }
 }

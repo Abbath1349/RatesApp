@@ -14,13 +14,16 @@ class RateListPresenter : MviBasePresenter<IRatesList.View, IRatesList.ViewState
     override fun bindIntents() {
 
         val observable = intent(IRatesList.View::loadIntents)
-            .flatMapSingle { repository.getStocks(listOf(StockListTypes.MOST_ACTIVE)) }
-            .map { IRatesList.ViewState.DataState(it) }
-            .cast(IRatesList.ViewState::class.java)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .startWith { IRatesList.ViewState.LoadingState }
-            .onErrorReturn { IRatesList.ViewState.ErrorState }
+            .flatMap {
+                repository.getStocks(listOf(StockListTypes.MOST_ACTIVE))
+                    .map {
+                        IRatesList.ViewState.DataState(it) as IRatesList.ViewState
+                    }
+                    .startWith(IRatesList.ViewState.LoadingState)
+                    .onErrorReturn { IRatesList.ViewState.ErrorState(it) }
+                    .subscribeOn(Schedulers.io())
+            }.observeOn(AndroidSchedulers.mainThread())
+
 
         subscribeViewState(observable, IRatesList.View::render)
     }

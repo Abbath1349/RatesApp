@@ -21,8 +21,8 @@ class RateListFragment : MviFragment<IRatesList.View, RateListPresenter>(), IRat
         inflater.inflate(R.layout.fragment_rates_list, container, false)
 
 
-    override fun loadIntents(): Observable<List<Stock>> {
-        return Observable.just(listOf())
+    override fun loadIntents(): Observable<String> {
+        return Observable.just("Hello")
     }
 
     override fun render(viewState: IRatesList.ViewState) {

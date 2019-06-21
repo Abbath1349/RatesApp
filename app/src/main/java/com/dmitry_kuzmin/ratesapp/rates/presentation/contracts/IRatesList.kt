@@ -8,7 +8,7 @@ interface IRatesList {
 
     interface View : MvpView {
 
-        fun loadIntents(): Observable<List<Stock>>
+        fun loadIntents(): Observable<String>
 
         fun render(viewState: ViewState)
     }
@@ -16,7 +16,7 @@ interface IRatesList {
     sealed class ViewState {
 
         object LoadingState : ViewState()
-        class DataState(val stocks: List<Stock>) : ViewState()
-        object ErrorState : ViewState()
+        data class DataState(val stocks: List<Stock>) : ViewState()
+        data class ErrorState(val error: Throwable) : ViewState()
     }
 }
