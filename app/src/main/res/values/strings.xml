@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">RatesApp</string>
     <string name="menu_go_to_rates_list">Rates</string>
+
+    <!-- Base Strings -->
+    <string name="price">Price</string>
+    <string name="range">Range</string>
+
 </resources>
