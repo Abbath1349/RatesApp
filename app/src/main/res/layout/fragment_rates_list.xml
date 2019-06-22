@@ -37,7 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    <!--43CDA1-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/actionButton"
             app:backgroundTint="@color/screen_gradient_top"
