@@ -47,13 +47,29 @@ class IEXDataSource : IStocksDataSource {
 
     override fun loadStocks(types: List<StockListTypes>): Observable<List<Stock>> {
         return if (types.size == 1 && types.none { it == StockListTypes.ALL }) {
-            api.loadStocks(types.single().convert())
-                .map { list -> list.map { it.toStockModel() } }
+            load(types.single())
         } else if (types.contains(StockListTypes.ALL)) {
-            Observable.just(listOf())
+            loadAll(StockListTypes.values().filter { it != StockListTypes.ALL })
         } else {
-            Observable.just(listOf())
+            loadAll(types)
         }
+    }
+
+    private fun loadAll(types: List<StockListTypes>): Observable<List<Stock>> {
+        return Observable.fromIterable(types)
+            .flatMap { load(it) }
+            .reduce { a: List<Stock>, b: List<Stock> ->
+                val list = arrayListOf<Stock>()
+                list.addAll(a)
+                list.addAll(b)
+                list
+            }
+            .flatMapObservable { Observable.just(it.distinctBy { stock -> stock.symbol }) }
+    }
+
+    private fun load(item: StockListTypes): Observable<List<Stock>> {
+        return api.loadStocks(item.convert())
+            .map { list -> list.map { it.toStockModel() } }
     }
 
     private fun StockListTypes.convert(): String {

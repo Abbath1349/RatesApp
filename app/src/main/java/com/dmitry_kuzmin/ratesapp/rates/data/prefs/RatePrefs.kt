@@ -20,7 +20,7 @@ class RatePrefs {
         val json = prefs.getString(PREFS_NAME, null)
 
         return json?.let { Gson().fromJson(json, Filter::class.java) }
-            ?: Filter(listOf(StockListTypes.GAINERS))
+            ?: Filter(listOf(StockListTypes.ALL))
     }
 
     fun setFilter(filter: Filter, async: Boolean = true) {
