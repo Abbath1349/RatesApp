@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:background="@drawable/bg_main_gradient"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:background="@drawable/bg_main_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Group
+            android:id="@+id/contentGroup"
+            app:constraint_referenced_ids="ratesRecyclerView,actionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loadingView"
             android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_fileName="1309-smiley-stack.json"
@@ -17,9 +28,24 @@
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ratesRecyclerView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-</LinearLayout>
+    <!--43CDA1-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/actionButton"
+            app:backgroundTint="@color/screen_gradient_top"
+            android:src="@drawable/ic_add_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
