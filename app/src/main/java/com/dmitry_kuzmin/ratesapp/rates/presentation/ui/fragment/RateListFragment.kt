@@ -52,15 +52,15 @@ class RateListFragment : MviFragment<IRatesList.View, RateListPresenter>(), IRat
     }
 
     private fun renderLoading() {
-
+        loadingView.visibility = View.VISIBLE
     }
 
     private fun renderContent(stocks: List<Stock>) {
+        loadingView.visibility = View.GONE
         adapter.updateItems(stocks)
     }
 
     private fun renderError() {
-
+        loadingView.visibility = View.GONE
     }
-
 }

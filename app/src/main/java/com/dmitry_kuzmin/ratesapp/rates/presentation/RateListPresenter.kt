@@ -16,9 +16,7 @@ class RateListPresenter : MviBasePresenter<IRatesList.View, IRatesList.ViewState
         val observable = intent(IRatesList.View::loadIntents)
             .flatMap {
                 repository.getStocks(listOf(StockListTypes.MOST_ACTIVE))
-                    .map {
-                        IRatesList.ViewState.DataState(it) as IRatesList.ViewState
-                    }
+                    .map { IRatesList.ViewState.DataState(it) as IRatesList.ViewState }
                     .startWith(IRatesList.ViewState.LoadingState)
                     .onErrorReturn { IRatesList.ViewState.ErrorState(it) }
                     .subscribeOn(Schedulers.io())
