@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dmitry_kuzmin.ratesapp.R
+import com.dmitry_kuzmin.ratesapp.core.presentation.ui.MarginItemDecoration
 import com.dmitry_kuzmin.ratesapp.menu.domain.model.Stock
 import com.dmitry_kuzmin.ratesapp.rates.presentation.RateListAdapter
 import com.dmitry_kuzmin.ratesapp.rates.presentation.RateListPresenter
@@ -34,9 +34,9 @@ class RateListFragment : MviFragment<IRatesList.View, RateListPresenter>(), IRat
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ratesRecyclerView.layoutManager = LinearLayoutManager(context)
-        val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        val decoration = MarginItemDecoration(resources.getDimension(R.dimen.rate_list_item_margin).toInt())
         ratesRecyclerView.adapter = adapter
-        ratesRecyclerView.addItemDecoration(divider)
+        ratesRecyclerView.addItemDecoration(decoration)
     }
 
     override fun loadIntents(): Observable<String> {

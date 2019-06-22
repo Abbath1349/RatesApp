@@ -9,6 +9,9 @@
     <dimen name="text_xl">16sp</dimen>
     <dimen name="text_xxl">20sp</dimen>
 
+    <!--rate list -->
+    <dimen name="rate_list_item_margin">4dp</dimen>
+
     <!-- corners -->
     <dimen name="default_corners">12dp</dimen>
 </resources>
