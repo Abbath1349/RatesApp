@@ -8,4 +8,52 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BaseButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">@dimen/text_m</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="MainButton" parent="BaseButton">
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:background">@drawable/bg_main_button_dark</item>
+    </style>
+
+    <style name="BaseText" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextXS" parent="BaseText">
+        <item name="android:textSize">@dimen/text_xs</item>
+    </style>
+
+    <style name="TextS" parent="BaseText">
+        <item name="android:textSize">@dimen/text_m</item>
+    </style>
+
+    <style name="TextM" parent="BaseText">
+        <item name="android:textSize">@dimen/text_m</item>
+    </style>
+
+    <style name="TextL" parent="BaseText">
+        <item name="android:textSize">@dimen/text_m</item>
+    </style>
+
+    <style name="TextXL" parent="BaseText">
+        <item name="android:textSize">@dimen/text_m</item>
+    </style>
+
+    <style name="TextXXL" parent="BaseText">
+        <item name="android:textSize">@dimen/text_m</item>
+    </style>
+
+    <style name="TextS.HelpColor">
+        <item name="android:textColor">@color/help_text_color</item>
+    </style>
+
+    <style name="TextM.MainColor">
+        <item name="android:textColor">@color/main_text_color</item>
+    </style>
+
 </resources>

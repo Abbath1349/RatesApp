@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#283E59</color>
+    <color name="colorPrimaryDark">#283E59</color>
     <color name="colorAccent">#D81B60</color>
 
     <color name="screen_gradient_top">#385274</color>
     <color name="screen_gradient_middle">#395274</color>
     <color name="screen_gradient_bottom">#283E59</color>
+
+    <color name="rate_item_gradient_start">#374F70</color>
+    <color name="rate_item_gradient_middle">#304763</color>
+    <color name="rate_item_gradient_end">#253A51</color>
+
+    <color name="button_color">#222222</color>
+    <color name="color_white">#ffffff</color>
+
+    <color name="main_text_color">#E4EBF5</color>
+    <color name="help_text_color">#688FB7</color>
 
 </resources>

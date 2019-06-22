@@ -8,6 +8,7 @@
     <Button
             android:id="@+id/goToRatesButton"
             android:layout_width="match_parent"
+            style="@style/MainButton"
             android:text="@string/menu_go_to_rates_list"
             android:layout_height="wrap_content"/>
 

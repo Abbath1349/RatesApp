@@ -49,6 +49,8 @@ class IEXDataSource : IStocksDataSource {
         return if (types.size == 1 && types.none { it == StockListTypes.ALL }) {
             api.loadStocks(types.single().convert())
                 .map { list -> list.map { it.toStockModel() } }
+        } else if (types.contains(StockListTypes.ALL)) {
+            Observable.just(listOf())
         } else {
             Observable.just(listOf())
         }
