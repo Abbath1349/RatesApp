@@ -11,5 +11,13 @@
 
     <fragment android:id="@+id/rateListFragment"
               android:name="com.dmitry_kuzmin.ratesapp.rates.presentation.ui.fragment.RateListFragment"
-              android:label="RateListFragment"/>
+              android:label="RateListFragment">
+
+        <action android:id="@+id/action_rateListFragment_to_rateFilterFragment"
+                app:destination="@id/rateFilterFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/rateFilterFragment"
+              android:name="com.dmitry_kuzmin.ratesapp.rates.presentation.ui.fragment.RateFilterFragment"
+              android:label="RateFilterFragment"/>
 </navigation>

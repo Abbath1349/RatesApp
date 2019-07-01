@@ -56,4 +56,9 @@
         <item name="android:textColor">@color/main_text_color</item>
     </style>
 
+    <style name="TextXL.MainColor">
+        <item name="android:textColor">@color/main_text_color</item>
+    </style>
+
+
 </resources>

@@ -6,4 +6,7 @@
     <string name="price">Price</string>
     <string name="range">Range</string>
 
+    <!-- Rates -->
+    <string name="rate_filter_stock_type">Stock type</string>
+
 </resources>

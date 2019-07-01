@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dmitry_kuzmin.ratesapp.R
 import com.dmitry_kuzmin.ratesapp.core.presentation.ui.MarginItemDecoration
@@ -37,6 +38,10 @@ class RateListFragment : MviFragment<IRatesList.View, RateListPresenter>(), IRat
         val decoration = MarginItemDecoration(resources.getDimension(R.dimen.rate_list_item_margin).toInt())
         ratesRecyclerView.adapter = adapter
         ratesRecyclerView.addItemDecoration(decoration)
+
+        actionButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_rateListFragment_to_rateFilterFragment)
+        }
     }
 
     override fun loadIntents(): Observable<String> {
