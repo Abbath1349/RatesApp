@@ -12,4 +12,15 @@
             android:layout_margin="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+    <ToggleButton
+            android:background="@drawable/bg_filter_button"
+            android:layout_width="wrap_content"
+            android:textColor="@color/color_filter_button"
+            android:layout_height="30dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stockTypeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 </LinearLayout>

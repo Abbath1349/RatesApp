@@ -17,5 +17,8 @@
 
     <color name="main_text_color">#E4EBF5</color>
     <color name="help_text_color">#688FB7</color>
+    <color name="selected_text_color">#002236</color>
+
+    <color name="active_color">#42EED6</color>
 
 </resources>
