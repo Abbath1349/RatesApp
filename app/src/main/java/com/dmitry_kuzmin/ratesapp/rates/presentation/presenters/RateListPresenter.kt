@@ -1,4 +1,4 @@
-package com.dmitry_kuzmin.ratesapp.rates.presentation
+package com.dmitry_kuzmin.ratesapp.rates.presentation.presenters
 
 import com.dmitry_kuzmin.ratesapp.rates.data.prefs.RatePrefs
 import com.dmitry_kuzmin.ratesapp.rates.domain.repo.StockRepository

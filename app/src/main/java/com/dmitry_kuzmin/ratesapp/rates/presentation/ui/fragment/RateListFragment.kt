@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dmitry_kuzmin.ratesapp.R
 import com.dmitry_kuzmin.ratesapp.core.presentation.ui.MarginItemDecoration
 import com.dmitry_kuzmin.ratesapp.menu.domain.model.Stock
-import com.dmitry_kuzmin.ratesapp.rates.presentation.RateListAdapter
-import com.dmitry_kuzmin.ratesapp.rates.presentation.RateListPresenter
 import com.dmitry_kuzmin.ratesapp.rates.presentation.contracts.IRatesList
+import com.dmitry_kuzmin.ratesapp.rates.presentation.presenters.RateListPresenter
+import com.dmitry_kuzmin.ratesapp.rates.presentation.ui.adapters.RateListAdapter
 import com.hannesdorfmann.mosby3.mvi.MviFragment
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.fragment_rates_list.*

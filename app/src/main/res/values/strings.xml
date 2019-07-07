@@ -8,5 +8,10 @@
 
     <!-- Rates -->
     <string name="rate_filter_stock_type">Stock type</string>
+    <string name="stock_type_most_active">Most Active</string>
+    <string name="stock_type_gainers">Gainers</string>
+    <string name="stock_type_losers">Losers</string>
+    <string name="stock_type_all">All</string>
+    <string name="save">Save</string>
 
 </resources>

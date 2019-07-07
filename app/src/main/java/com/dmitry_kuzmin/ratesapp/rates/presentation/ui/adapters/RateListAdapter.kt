@@ -1,4 +1,4 @@
-package com.dmitry_kuzmin.ratesapp.rates.presentation
+package com.dmitry_kuzmin.ratesapp.rates.presentation.ui.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -18,7 +18,10 @@ class RateListAdapter(private val onStockClick: onStockClick) : RecyclerView.Ada
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_rate, parent, false)
-        return StockViewHolder(view, onStockClick)
+        return StockViewHolder(
+            view,
+            onStockClick
+        )
     }
 
     override fun getItemCount() = items.size

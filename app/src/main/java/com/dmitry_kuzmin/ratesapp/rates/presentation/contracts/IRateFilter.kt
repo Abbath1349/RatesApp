@@ -1,6 +1,6 @@
 package com.dmitry_kuzmin.ratesapp.rates.presentation.contracts
 
-import com.dmitry_kuzmin.ratesapp.rates.domain.model.RateFilter
+import com.dmitry_kuzmin.ratesapp.rates.presentation.model.RateFilterPM
 import com.hannesdorfmann.mosby3.mvp.MvpView
 import io.reactivex.Observable
 
@@ -14,7 +14,7 @@ interface IRateFilter {
     }
 
     sealed class ViewState {
-        data class DataState(val rateFilter: RateFilter) : ViewState()
+        data class DataState(val rateFilter: RateFilterPM) : ViewState()
         data class ErrorState(val error: Throwable) : ViewState()
     }
 }

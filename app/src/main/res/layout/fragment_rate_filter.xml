@@ -3,24 +3,32 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:background="@drawable/bg_main_gradient"
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <TextView
             style="@style/TextXL.MainColor"
             android:text="@string/rate_filter_stock_type"
-            android:layout_margin="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-    <ToggleButton
-            android:background="@drawable/bg_filter_button"
-            android:layout_width="wrap_content"
-            android:textColor="@color/color_filter_button"
-            android:layout_height="30dp"/>
-
     <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="16dp"
             android:id="@+id/stockTypeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    <Button
+            android:id="@+id/saveFilterButton"
+            android:layout_marginTop="16dp"
+            android:text="@string/save"
+            style="@style/MainButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 </LinearLayout>
