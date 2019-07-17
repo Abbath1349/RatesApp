@@ -64,7 +64,7 @@ class IEXDataSource : IStocksDataSource {
                 list.addAll(b)
                 list
             }
-            .flatMapObservable { Observable.just(it.distinctBy { stock -> stock.symbol }) }
+            .flatMapObservable { Observable.just(it.filter { stock -> stock.symbol!=null }.distinctBy { stock -> stock.symbol }) }
     }
 
     private fun load(item: StockListTypes): Observable<List<Stock>> {

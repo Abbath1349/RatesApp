@@ -6,22 +6,28 @@ import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal
 
 data class IEXStockModel(
-    val symbol: String,
-    val companyName: String,
-    val latestPrice: String,
+    val symbol: String?,
+    val companyName: String?,
+    val latestPrice: String?,
     @SerializedName("high")
-    val highPrie: String,
+    val highPrice: String?,
     @SerializedName("low")
-    val lowPrice: String
+    val lowPrice: String?
 
 ) {
     fun toStockModel(): Stock {
         return Stock(
             symbol,
-            companyName,
-            Money(BigDecimal(latestPrice)),
-            Money(BigDecimal(lowPrice)),
-            Money(BigDecimal(highPrie))
+            companyName.orEmpty(),
+            latestPrice?.let { Money(BigDecimal(latestPrice)) } ?: Money(
+                BigDecimal.ZERO
+            ),
+            lowPrice?.let { Money(BigDecimal(lowPrice)) } ?: Money(
+                BigDecimal.ZERO
+            ),
+            highPrice?.let { Money(BigDecimal(highPrice)) } ?: Money(
+                BigDecimal.ZERO
+            )
         )
     }
 }
