@@ -1,5 +1,6 @@
 package com.dmitry_kuzmin.ratesapp.rates.presentation.contracts
 
+import com.dmitry_kuzmin.ratesapp.rates.domain.repo.StockListTypes
 import com.dmitry_kuzmin.ratesapp.rates.presentation.model.RateFilterPM
 import com.hannesdorfmann.mosby3.mvp.MvpView
 import io.reactivex.Observable
@@ -10,11 +11,14 @@ interface IRateFilter {
 
         fun loadIntents(): Observable<String>
 
+        fun onSaveClick(): Observable<List<StockListTypes>>
+
         fun render(viewState: ViewState)
     }
 
     sealed class ViewState {
         data class DataState(val rateFilter: RateFilterPM) : ViewState()
         data class ErrorState(val error: Throwable) : ViewState()
+        object ExitState : ViewState()
     }
 }

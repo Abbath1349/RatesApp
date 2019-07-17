@@ -17,16 +17,25 @@ class RateFilterPresenter : MviBasePresenter<IRateFilter.View, IRateFilter.ViewS
 
     override fun bindIntents() {
 
-        val observable = intent(IRateFilter.View::loadIntents)
+        val loadScreen = intent(IRateFilter.View::loadIntents)
             .flatMap {
                 Observable.just(ratePrefs.getFilter())
                     .map { mapRateFilter(it) }
                     .map { IRateFilter.ViewState.DataState(it) as IRateFilter.ViewState }
                     .onErrorReturn { IRateFilter.ViewState.ErrorState(it) }
                     .subscribeOn(Schedulers.io())
-            }.observeOn(AndroidSchedulers.mainThread())
+            }
 
-        subscribeViewState(observable, IRateFilter.View::render)
+        val saveAndExit = intent(IRateFilter.View::onSaveClick)
+            .flatMap {
+                Observable.fromCallable { ratePrefs.getFilter().copy(selectedStockTypes = it) }
+                    .map { IRateFilter.ViewState.ExitState }
+                    .subscribeOn(Schedulers.io())
+            }
+
+        val allIntents = Observable.merge(loadScreen, saveAndExit).observeOn(AndroidSchedulers.mainThread())
+
+        subscribeViewState(allIntents, IRateFilter.View::render)
     }
 
     private fun mapRateFilter(rateFilter: RateFilter): RateFilterPM {
