@@ -5,7 +5,7 @@ import com.dmitry_kuzmin.ratesapp.menu.domain.model.Stock
 import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal
 
-data class IEXStockModel(
+data class IEXStockModelDto(
     val symbol: String?,
     val companyName: String?,
     val latestPrice: String?,
