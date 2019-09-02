@@ -2,6 +2,6 @@
 Mvi + Clean Architecture approach
 
 if you want to run project:
-- register token https://iexcloud.io 
+- register account at https://iexcloud.io 
 - get api token
 - add token to IEXTokenProvider
